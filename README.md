@@ -5,7 +5,6 @@ Export a case study written in Obsidian (Markdown) into structured JSON blocks, 
 - **Command:** `Case Study -> Figma: Export case study to Figma (clipboard)`
 - **Plugin ID:** `case-study-figma`
 - **Author:** Meghan Lendhe — https://meghan-lendhe.github.io/
-- **License:** MIT
 
 ---
 
