@@ -1,15 +1,15 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
 import CaseStudyFigmaPlugin from "./main";
 
-export interface MyPluginSettings {
+export interface CaseStudyFigmaSettings {
 	mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: CaseStudyFigmaSettings = {
 	mySetting: 'default'
 }
 
-export class SampleSettingTab extends PluginSettingTab {
+export class SettingTab extends PluginSettingTab {
 	plugin: CaseStudyFigmaPlugin;
 
 	constructor(app: App, plugin: CaseStudyFigmaPlugin) {

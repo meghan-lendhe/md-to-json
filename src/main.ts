@@ -1,11 +1,11 @@
-import { App, Editor, MarkdownView, Notice, Plugin } from 'obsidian';
-import { SampleSettingTab } from './settings';
+import { Editor, MarkdownView, Notice, Plugin } from 'obsidian';
+import { SettingTab } from './settings';
 
-export interface MyPluginSettings {
+export interface CaseStudyFigmaSettings {
     mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: CaseStudyFigmaSettings = {
     mySetting: 'default'
 }
 
@@ -19,15 +19,15 @@ interface Block {
 
 export default class CaseStudyFigmaPlugin extends Plugin {
 
-    settings: MyPluginSettings;
+    settings: CaseStudyFigmaSettings;
 
     async onload() {
         await this.loadSettings();
-        this.addSettingTab(new SampleSettingTab(this.app, this));
+        this.addSettingTab(new SettingTab(this.app, this));
         // Add command to export current note
         this.addCommand({
             id: 'export-to-figma',
-            name: 'Export case study to Figma (clipboard)',
+            name: 'Export case study to figma (clipboard)',
             editorCallback: (editor: Editor, view: MarkdownView) => {
                 const content = editor.getValue();
                 const blocks = this.parseMarkdown(content);
@@ -40,7 +40,7 @@ export default class CaseStudyFigmaPlugin extends Plugin {
         });
 
         // Add ribbon icon for quick access
-        this.addRibbonIcon('upload-cloud', 'Export to Figma', () => {
+        this.addRibbonIcon('upload-cloud', 'Export to figma', () => {
             const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
             if (activeView) {
                 const content = activeView.editor.getValue();
@@ -49,7 +49,7 @@ export default class CaseStudyFigmaPlugin extends Plugin {
                 const json = JSON.stringify(blocks, null, 2);
                 navigator.clipboard.writeText(json);
 
-                new Notice(`✓ ${blocks.length} blocks ready for Figma`);
+                new Notice(`✓ ${blocks.length} blocks ready for figma`);
             } else {
                 new Notice('No active markdown file');
                 return;
