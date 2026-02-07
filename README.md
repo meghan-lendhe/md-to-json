@@ -22,7 +22,7 @@ Copy a note written in Obsidian (Markdown) into structured JSON blocks, optimize
 
 This exporter is intended to be used with:
 
-- **Case Study Importer (Figma Plugin):** https://github.com/meghan-lendhe/Case-Study-Importer
+- **JSON to Text (Figma Plugin):** https://github.com/meghan-lendhe/json-to-text
 
 ---
 
@@ -54,7 +54,7 @@ The plugin copies JSON like:
 1. Open your case study note in Obsidian.
 2. Press `Ctrl + P` to open Command Palette.
 3. Run: **Copy Markdown as JSON blocks**
-4. Open Figma → run the Case Study Importer plugin.
+4. Open Figma → run the JSON to Text plugin.
 5. Paste JSON into the plugin UI and click Import.
 
 ---
