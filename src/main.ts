@@ -1,11 +1,11 @@
 import { Editor, MarkdownView, Notice, Plugin } from 'obsidian';
 import { SettingTab } from './settings';
 
-export interface CaseStudyFigmaSettings {
+export interface MarkdownToJSONSettings {
     mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: CaseStudyFigmaSettings = {
+export const DEFAULT_SETTINGS: MarkdownToJSONSettings = {
     mySetting: 'default'
 }
 
@@ -17,17 +17,17 @@ interface Block {
     id: string;
 }
 
-export default class CaseStudyFigmaPlugin extends Plugin {
+export default class MarkdownToJSONPlugin extends Plugin {
 
-    settings: CaseStudyFigmaSettings;
+    settings: MarkdownToJSONSettings;
 
     async onload() {
         await this.loadSettings();
         this.addSettingTab(new SettingTab(this.app, this));
         // Add command to export current note
         this.addCommand({
-            id: 'export-to-figma',
-            name: 'Export case study to Figma (clipboard)',
+            id: 'copy-markdown-as-json',
+            name: 'Copy Markdown as JSON blocks',
             editorCallback: async (editor: Editor, view: MarkdownView) => {
                 const content = editor.getValue();
                 const blocks = this.parseMarkdown(content);
@@ -35,12 +35,12 @@ export default class CaseStudyFigmaPlugin extends Plugin {
                 const json = JSON.stringify(blocks, null, 2);
                 await navigator.clipboard.writeText(json);
 
-                new Notice(`✓ ${blocks.length} blocks ready for Figma`);
+                new Notice(`✓ ${blocks.length} blocks copied to clipboard.`);
             }
         });
 
         // Add ribbon icon for quick access
-        this.addRibbonIcon('upload-cloud', 'Export to Figma', async () => {
+        this.addRibbonIcon('layers', 'Markdown to JSON', async () => {
             const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
             if (activeView) {
                 const content = activeView.editor.getValue();
@@ -49,7 +49,7 @@ export default class CaseStudyFigmaPlugin extends Plugin {
                 const json = JSON.stringify(blocks, null, 2);
                 await navigator.clipboard.writeText(json);
 
-                new Notice(`✓ ${blocks.length} blocks ready for Figma`);
+                new Notice(`✓ ${blocks.length} blocks copied to clipboard.`);
             } else {
                 new Notice("No active Markdown file.");
                 return;
@@ -115,7 +115,7 @@ export default class CaseStudyFigmaPlugin extends Plugin {
     }
 
     async loadSettings() {
-        const data = (await this.loadData()) as Partial<CaseStudyFigmaSettings> | null;
+        const data = (await this.loadData()) as Partial<MarkdownToJSONSettings> | null;
 
         this.settings = Object.assign(
             {},

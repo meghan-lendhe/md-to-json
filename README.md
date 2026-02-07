@@ -1,9 +1,9 @@
-# Case Study → Figma (Obsidian Plugin)
+# Markdown to JSON (Obsidian Plugin)
 
-Export a case study written in Obsidian (Markdown) into structured JSON blocks, optimized to be pasted into the companion Figma plugin that generates **separate text layers** for fast case study page layout.
+Copy a note written in Obsidian (Markdown) into structured JSON blocks, optimized to be pasted into the companion Figma plugin that generates **separate text layers** for fast case study page layout.
 
-- **Command:** `Case Study -> Figma: Export case study to Figma (clipboard)`
-- **Plugin ID:** `case-study-figma`
+- **Command:** `Copy Markdown as JSON blocks`
+- **Plugin ID:** `md-to-json`
 - **Author:** Meghan Lendhe — https://meghan-lendhe.github.io/
 
 ---
@@ -53,7 +53,7 @@ The plugin copies JSON like:
 
 1. Open your case study note in Obsidian.
 2. Press `Ctrl + P` to open Command Palette.
-3. Run: **Case Study -> Figma: Export case study to Figma (clipboard)**
+3. Run: **Copy Markdown as JSON blocks**
 4. Open Figma → run the Case Study Importer plugin.
 5. Paste JSON into the plugin UI and click Import.
 
@@ -64,16 +64,15 @@ The plugin copies JSON like:
 1. Build the plugin (see Development).
 2. Copy the built files into your vault:
 
-`<YourVault>/.obsidian/plugins/case-study-figma/`
+`<YourVault>/.obsidian/plugins/md-to-json/`
 
 Files needed:
 - `manifest.json`
 - `main.js`
-- `styles.css` (optional)
 
 This matches the common layout used by the Obsidian sample plugin template.
 
-3. In Obsidian: Settings → Community plugins → enable **Case Study → Figma**.
+3. In Obsidian: Settings → Community plugins → enable **Markdown to JSON**.
 
 > If `.obsidian/plugins` doesn’t exist yet, create it.
 

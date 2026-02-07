@@ -1,7 +1,7 @@
 {
-	"name": "case-study-figma",
+	"name": "md-to-json",
 	"version": "1.0.0",
-	"description": "Export case studies to Figma as structured JSON blocks",
+	"description": "Copy a Markdown note as structured JSON blocks to the clipboard.",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {

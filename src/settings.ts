@@ -1,18 +1,18 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
-import CaseStudyFigmaPlugin from "./main";
+import MarkdownToJSONPlugin from "./main";
 
-export interface CaseStudyFigmaSettings {
+export interface MarkdownToJSONSettings {
 	mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: CaseStudyFigmaSettings = {
+export const DEFAULT_SETTINGS: MarkdownToJSONSettings = {
 	mySetting: 'default'
 }
 
 export class SettingTab extends PluginSettingTab {
-	plugin: CaseStudyFigmaPlugin;
+	plugin: MarkdownToJSONPlugin;
 
-	constructor(app: App, plugin: CaseStudyFigmaPlugin) {
+	constructor(app: App, plugin: MarkdownToJSONPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}

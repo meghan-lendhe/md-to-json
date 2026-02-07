@@ -1,9 +1,9 @@
 {
-    "id": "case-study-figma",
-    "name": "Case Study → Figma",
+    "id": "md-to-json",
+    "name": "Markdown to JSON",
     "version": "1.0.0",
     "minAppVersion": "0.15.0",
-    "description": "Export case studies to Figma as structured JSON blocks",
+    "description": "Copy a Markdown note as structured JSON blocks to the clipboard.",
     "author": "Meghan Lendhe",
     "authorUrl": "https://meghan-lendhe.github.io/",
     "isDesktopOnly": false
